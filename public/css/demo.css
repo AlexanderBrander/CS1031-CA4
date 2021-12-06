@@ -286,6 +286,8 @@ nav a {
     cursor: pointer;
     color: #fff;
 }
+
+/* Chat content */
 .message__info {
     font-size: 20px;
 }
