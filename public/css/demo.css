@@ -6,6 +6,12 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+header{
+    width: 100%;
+    position: fixed;
+}
+
 .wrapper {
     width: 90%;
     margin: 0 auto;
@@ -53,10 +59,6 @@ body {
 }
 
 
-header{
-    width: 100%;
-    position: fixed;
-}
 
 /* Style the nav bar */
 nav {
@@ -69,6 +71,7 @@ nav a {
     font-size: 20px;
     color: #fff;
 }
+
 
 /* Style the Banner */
 
@@ -109,7 +112,9 @@ nav a {
     letter-spacing: 8px;
 }
 
-/* Banner button */
+
+
+/* Banner chat button */
 .chatButton {
     width: 300px;
     height: 100px;
@@ -135,7 +140,11 @@ nav a {
     height: 120px;
 }
 
+
+
 /* Style the content area */
+
+/* First content box */
 .contentArea {
     width: 100%;
     height: 800px;
@@ -156,7 +165,7 @@ nav a {
     padding: 2% 0;
     line-height: 40px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 #centerText {
     height: 350px;
@@ -166,6 +175,10 @@ nav a {
     z-index: 5;
     border: 2px solid #3399FF;
 }
+
+
+
+/* Home page flex contents */
 .contentItem {
     width: 100%;
 }
@@ -174,6 +187,7 @@ nav a {
     flex-wrap: wrap;
     background-color: #FFF;
     position: sticky;
+    height: 480px;
 }
 .contentFlex > div {
     flex: 50%;
@@ -196,17 +210,61 @@ nav a {
     letter-spacing: 4px;
 }
 .contentFlex p {
-    padding: 2% 0;
-    margin-right: 40px;
+    padding: 5% 0;
+    margin: 20px;
     line-height: 30px;
     text-align: justify;
     font-size: 17px;
     color: #000;
     letter-spacing: 1px;
-    
 }
 
-/* Home button */
+
+
+/* About page flex contents */
+.contentItemA {
+    width: 100%;
+}
+.contentFlexA {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFF;
+    position: sticky;
+}
+.contentFlexA > div {
+    flex: 50%;
+    background-color: #fcffcc; 
+    border: solid 2px #ffaa7f;
+    padding: 5px;
+}
+.contentFlexA h2 {
+    font-size: 40px;
+    margin: 0;
+    padding-top: 40px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+.contentFlexA h4 {
+    margin: 10px;
+    font-size: 24px;
+    color: #000;
+    text-align: left;
+    letter-spacing: 4px;
+}
+.contentFlexA p {
+    padding: 2% 0;
+    margin: 20px;
+    line-height: 30px;
+    text-align: justify;
+    font-size: 17px;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+
+
+
+/* Home button in chat app */
 .homeButton {
     width: 300px;
     height: 100px;
@@ -227,4 +285,7 @@ nav a {
     box-shadow: inset 0px 0px 350px 0px #b21bd1;
     cursor: pointer;
     color: #fff;
+}
+.message__info {
+    font-size: 20px;
 }
