@@ -50,6 +50,7 @@ socket.on("new user", function (data) {
   data.map(function (user) {
           return addToUsersBox(user);
       });
+    alert("A new user has joined the chat");
 });
 
 //when a user leaves
@@ -68,22 +69,29 @@ const addNewMessage = ({ user, message }) => {
 
   const receivedMsg = `
   <div class="incoming__message">
-    <div class="received__message">
-      <p>${message}</p>
+    <div class="received__message">      
       <div class="message__info">
-        <span class="message__author">${user}</span>
-        <span class="time_date">${formattedTime}</span>
+        <br><p>
+        <span class="time_date">${formattedTime}:</span>
+        <span class="message__author">${user} </span>
+        <br>
+        ${message}</p>
+        
       </div>
     </div>
   </div>`;
 
   const myMsg = `
   <div class="outgoing__message">
-    <div class="sent__message">
-      <p>${message}</p>
-      <div class="message__info">
-        <span class="time_date">${formattedTime}</span>
-      </div>
+    <div class="sent__message">      
+        <div class="message__info">
+            <br><p>
+            <span class="time_date">${formattedTime}:</span>
+            <span class="message__author">${user} </span>
+            <br>
+            ${message}</p>            
+            
+        </div>
     </div>
   </div>`;
 
@@ -105,6 +113,22 @@ messageForm.addEventListener("submit", (e) => {
   inputField.value = "";
 });
 
+
+
+/* I tried to implement a function that detected when ENTER is hit on the keyboard so it removes user is typing...
+ * 
+ * 
+$window.keydown(event function() {
+    if (event.which === 13) {
+        if (userName) {
+            socket.emit("stop typing");
+        }
+    }
+});*/
+
+
+
+//Display the chat message
 socket.on("chat message", function (data) {
   addNewMessage({ user: data.nick, message: data.message });
 });
