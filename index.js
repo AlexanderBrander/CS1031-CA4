@@ -22,6 +22,8 @@ const activeUsers = new Set();
 io.on("connection", function (socket) {
     console.log("Made socket connection");
 
+    
+    //When a new user joins, it runs this function
     socket.on("new user", function (data) {
         socket.userId = data;
         activeUsers.add(data);
@@ -32,15 +34,31 @@ io.on("connection", function (socket) {
         console.log("New user", socket.userId, "has joined");
     });
 
+    // When the user disconnects, it runs this function.
     socket.on("disconnect", function () {
         activeUsers.delete(socket.userId);
         io.emit("user disconnected", socket.userId);
         io.emit("chat message", {nick:"", message:`${socket.userId} has disconnected`});
         console.log(`${socket.userId} disconnected`);
     });
-
+    
+    
+    
+    /* Here I tried to implement a user is typing function but I was so far off. 
+     * 
+     * 
+    // When the user is typing a message, it is broadcast to other users.
+    socket.on("typing message", function() {
+        socket.broadcast.emit("typing", {nick:"", message:`${socket.userId} is typing...`});
+    });
+    
+    // When the user stops typing, it is broadcast to other users.
+    socket.on("stopped typing", function() {
+        socket.broadcast.emit("stopped typing", {nick:""});
+    }); */
+    
+    // Display chat message
     socket.on("chat message", function (data) {
         io.emit("chat message", data);
     });
-
 });
