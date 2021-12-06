@@ -7,12 +7,98 @@
         <title>Home page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/demo.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/demo.css">
     </head>
+    
     <body>
-        <p>This is the home page</p>
+        <div class="box-area">
+            
+            <!--Navbar-->
+            <header>
+                <nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" data-target="#navbarR" type="button" data-toggle="collapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> 
+                        <div class="collapse navbar-collapse" id="navbarR">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>                
+                </nav>
+            </header>
+                    
+            <!--Banner-->
+            <header>
+                <div class="bannerArea">
+                    <h2>Alexander Brander</h2>
+                    <h4>University of Aberdeen</h4>
+                    
+                    <form action="chat.html">  
+                        <button type="submit" class="chatButton">Click to Chat!</button>
+                    </form>
+                </div>                
+            </header>
+            
+            
+            <!--Content-->
+            
+            <!--Overview box content-->
+            <article>                
+                <div class="contentArea">
+                    <div id="centerText">
+                        <div class="wrapper">
+                        <h2>Basic Overview</h2>
+                        <p>Welcome to my CA4 Assessment website. If you click on the button in the banner it will take you to the chat app. Below
+                            you will find a list and a brief overview of some of my interests and hobbies. If you click on the about tab in the
+                            navigation bar, it will take you to the about page where I go into more detail on my interests hobbies listed in the home
+                            page as well as how the website was developed in relation to the chat app and the html/styling of the page.
+                            </p>
+                        </div>
+                    </div>                   
+                </div>
+            </article>  
+            
+            <!--Interests boxes content-->
+            <article>
+                <div class="contentFlex">
+                    <div class="contentItem">
+                        <h2>Main Hobby</h2>
+                        <ul>
+                            <li><h4>Music</h4></li>
+                            <p>I have a deep interest in music that stems from my family who taught me different instruments growing up. 
+                            Some of my earliest memories in life are going to my uncle's gigs where he played in a country/rock band which left a lasting 
+                            impression on me growing up and left a sense of nostalgia ingrained within me. I have a strong passion for old rock and roll music and developed 
+                            an interest in playing electric guitar at a young age and, naturally, my guitaring idol is Jimi Hendrix and through my teens I became obsessed
+                            with his style and playing. </p>
+                            <li><h4>Playing Guitar</h4></li>
+                            <p>I started playing at age 6 but developed a real hunger for playing in my early teens. I've realised from my experience in playing that
+                                it takes a great deal of practice, hard work and dedication to master a skill. I would have jam sessions with my friends from school
+                                and most of my friendships came from this passion as I was able to relate to people through music. 
+                                
+                            </p>
+                        </ul>
 
-        <p><a href="chat.html">Chat</a></p>
+                    </div>
+
+                    <div class="contentItem">
+                        <h2>Other Interests</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </article> 
+            
+        </div>
         
         <script src="js/client.js" async defer></script>
 
