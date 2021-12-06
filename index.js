@@ -4,10 +4,11 @@ const socket = require("socket.io");
 // App setup
 const PORT = 5000;
 const app = express();
-const server = app.listen(PORT, function () {
-  console.log(`Listening on port ${PORT}`);
 
+const server = app.listen(PORT, function () {
+    console.log(`Listening on port ${PORT}`);
 });
+
 
 // Static files
 app.use(express.static("public"));
@@ -19,22 +20,27 @@ const io = socket(server);
 const activeUsers = new Set();
 
 io.on("connection", function (socket) {
-  console.log("Made socket connection");
+    console.log("Made socket connection");
 
-  socket.on("new user", function (data) {
-    socket.userId = data;
-    activeUsers.add(data);
-    //... is the the spread operator, adds to the set while retaining what was in there already
-    io.emit("new user", [...activeUsers]);
-  });
+    socket.on("new user", function (data) {
+        socket.userId = data;
+        activeUsers.add(data);
+        //... is the the spread operator, adds to the set while retaining what was in there already
+        io.emit("new user", [...activeUsers]);
+      
+        io.emit("chat message", {nick:"", message:`${socket.userId} has joined`});
+        console.log("New user", socket.userId, "has joined");
+    });
 
-  socket.on("disconnect", function () {
-      activeUsers.delete(socket.userId);
-      io.emit("user disconnected", socket.userId);
+    socket.on("disconnect", function () {
+        activeUsers.delete(socket.userId);
+        io.emit("user disconnected", socket.userId);
+        io.emit("chat message", {nick:"", message:`${socket.userId} has disconnected`});
+        console.log(`${socket.userId} disconnected`);
     });
 
     socket.on("chat message", function (data) {
-      io.emit("chat message", data);
-  });
+        io.emit("chat message", data);
+    });
 
 });
